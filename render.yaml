@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: gate-coach-bot
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: ALLOWED_TG_USER_IDS
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: REMINDER_HOUR
+        value: "7"

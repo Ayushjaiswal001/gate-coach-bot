@@ -1,0 +1,22 @@
+name: keep-alive
+
+# Pings Render /healthz so the free service doesn't spin down (set URL after first deploy).
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch: {}
+
+env:
+  RENDER_URL: "https://REPLACE-ME.onrender.com"
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    if: ${{ !contains(vars.RENDER_URL, 'REPLACE-ME') }}
+    steps:
+      - name: Ping /healthz
+        run: |
+          url="${{ vars.RENDER_URL || env.RENDER_URL }}"
+          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 60 "$url/healthz")
+          echo "healthz HTTP $code"
+          test "$code" = "200"

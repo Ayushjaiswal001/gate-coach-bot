@@ -1,0 +1,123 @@
+# 6-month high-ROI GATE CSE roadmap. Seeded into syllabus_tracker (one row per sub_topic).
+# `hp: true` marks high-priority weeks.
+
+months:
+  - month: 1
+    title: "Programming, DS, & Algorithms"
+    weeks:
+      - week: 1
+        subject: "C Programming"
+        hp: true
+        sub_topics: ["Pointers", "Recursion", "Arrays"]
+      - week: 2
+        subject: "Linear Data Structures"
+        hp: true
+        sub_topics: ["Stacks", "Queues", "Linked Lists"]
+      - week: 3
+        subject: "Non-Linear Data Structures"
+        hp: true
+        sub_topics: ["Trees", "Binary Search Trees", "AVL Trees", "Heaps", "DFS/BFS"]
+      - week: 4
+        subject: "Algorithms"
+        hp: true
+        sub_topics: ["Asymptotic Analysis", "Sorting", "Divide & Conquer", "Greedy"]
+
+  - month: 2
+    title: "Math Engine"
+    weeks:
+      - week: 1
+        subject: "Discrete Math"
+        hp: true
+        sub_topics: ["Propositional Logic", "Set Theory", "Relations"]
+      - week: 2
+        subject: "Graph Theory & Combinatorics"
+        hp: true
+        sub_topics: ["Graph Theory", "Combinatorics"]
+      - week: 3
+        subject: "Linear Algebra"
+        hp: false
+        sub_topics: ["Matrices", "System of Equations", "Eigenvalues"]
+      - week: 4
+        subject: "Calculus & Probability"
+        hp: false
+        sub_topics: ["Calculus", "Bayes Theorem", "Distributions"]
+
+  - month: 3
+    title: "Systems & Automata"
+    weeks:
+      - week: 1
+        subject: "OS Processes"
+        hp: true
+        sub_topics: ["Scheduling", "Concurrency", "Semaphores"]
+      - week: 2
+        subject: "OS Memory Management"
+        hp: true
+        sub_topics: ["Paging", "TLB", "Virtual Memory", "Deadlocks"]
+      - week: 3
+        subject: "TOC Automata"
+        hp: true
+        sub_topics: ["Regular Expressions", "DFA/NFA Construction"]
+      - week: 4
+        subject: "TOC Grammars & Decidability"
+        hp: true
+        sub_topics: ["CFG", "PDA", "Turing Machines", "Decidability Table"]
+
+  - month: 4
+    title: "Data & Connections (Selective Targeting)"
+    weeks:
+      - week: 1
+        subject: "DBMS Core"
+        hp: false
+        sub_topics: ["ER Models", "Relational Algebra", "SQL Queries"]
+      - week: 2
+        subject: "DBMS Transactions"
+        hp: false
+        sub_topics: ["Normalization", "BCNF", "Concurrency Control"]
+      - week: 3
+        subject: "Computer Networks (Routing)"
+        hp: true
+        sub_topics: ["IPv4 Addressing", "Subnetting", "Routing"]
+      - week: 4
+        subject: "Computer Networks (Transport/MAC)"
+        hp: false
+        sub_topics: ["TCP/UDP", "Congestion Control", "MAC Layer"]
+
+  - month: 5
+    title: "Hardware & Consolidation"
+    weeks:
+      - week: 1
+        subject: "COA"
+        hp: true
+        sub_topics: ["Cache Mapping Numericals", "Instruction Pipelining/Hazards"]
+      - week: 2
+        subject: "Digital Logic"
+        hp: false
+        sub_topics: ["Boolean Algebra", "K-Maps", "Combinational Circuits"]
+      - week: 3
+        subject: "Revision Cycle"
+        hp: false
+        sub_topics: ["Re-solving flagged/incorrect PYQs"]
+      - week: 4
+        subject: "Short Notes Extraction"
+        hp: false
+        sub_topics: ["Formula sheets & edge cases"]
+
+  - month: 6
+    title: "The Mock Crucible"
+    weeks:
+      - week: 1
+        subject: "Full-Length Mocks"
+        hp: false
+        sub_topics: ["3-Hour Mock + Error Logging (Week 1)"]
+      - week: 2
+        subject: "Full-Length Mocks"
+        hp: false
+        sub_topics: ["3-Hour Mock + Error Logging (Week 2)"]
+      - week: 3
+        subject: "Full-Length Mocks"
+        hp: false
+        sub_topics: ["3-Hour Mock + Error Logging (Week 3)"]
+      - week: 4
+        subject: "Full-Length Mocks"
+        hp: false
+        sub_topics: ["3-Hour Mock + Error Logging (Week 4)"]
