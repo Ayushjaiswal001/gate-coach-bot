@@ -7,7 +7,8 @@
 ## Status
 - **Phase:** `CODE COMPLETE ✅ (M0–M2) — local-verified. Awaiting Ayush: BotFather token + Neon + Render deploy.`
 - **Last updated:** 2026-06-15 (full bot built: 7 commands, engines, scheduler, deploy files. 8/8 tests, ruff clean, migration cad789423a98 applied, seed=62 sub-topics. Not yet deployed — needs a NEW @BotFather bot + Neon DB.)
-- **Next action (Ayush):** (1) @BotFather → /newbot → token; (2) new Neon project → connection string; (3) `.env` from `.env.example`; (4) GitHub repo + Render (render.yaml blueprint) + set TELEGRAM_BOT_TOKEN/ALLOWED_TG_USER_IDS/DATABASE_URL secrets; (5) set keepalive RENDER_URL. Then verify with 409 getUpdates probe + live test.
+- **GitHub repo:** https://github.com/Ayushjaiswal001/gate-coach-bot (public, pushed) ✅
+- **Next action (Ayush):** (1) @BotFather → /newbot → token; (2) new Neon project → connection string; (3) Render → New → Blueprint → connect the repo above → set secrets TELEGRAM_BOT_TOKEN / ALLOWED_TG_USER_IDS / DATABASE_URL (Neon); (4) give me the Render URL → I set keepalive RENDER_URL var. Then verify 409 getUpdates probe + live test. (Optional local run: `.env` from `.env.example` + `run_bot.bat`.)
 - **Dev:** test `.venv\Scripts\python -m pytest -q` · lint `.venv\Scripts\ruff check .` · run `run_bot.bat` · seed `.venv\Scripts\python -m app.scripts.seed`
 
 ## Key facts
