@@ -28,9 +28,12 @@ COMMANDS = [
 
 
 async def setup_application(app: Application) -> None:
-    from app.db.session import init_db
+    from app.db.session import SessionLocal, init_db
+    from app.scripts.seed import load_syllabus, seed
 
     await init_db()
+    async with SessionLocal() as session:  # idempotent — keeps the cloud DB populated on every boot
+        await seed(session, load_syllabus())
     register_jobs(app)
     await app.bot.set_my_commands([BotCommand(c, d) for c, d in COMMANDS])
 
