@@ -1,6 +1,7 @@
 from datetime import date, timedelta
 
-from app.db.models import STATUS_COMPLETED, STATUS_IN_PROGRESS, STATUS_NOT_STARTED
+from sqlalchemy import select
+from app.db.models import STATUS_COMPLETED, STATUS_IN_PROGRESS, STATUS_NOT_STARTED, UserSyllabusProgress
 from app.engines import bookmarks, logs, progress, tracker
 
 
@@ -16,19 +17,34 @@ async def test_current_week_from_start_date(env):
 
 
 async def test_overall_and_completion(env):
-    o0 = await progress.overall(env.session)
+    o0 = await progress.overall(env.session, env.user.id, env.user.field)
     assert o0["done"] == 0 and o0["pct"] == 0.0 and o0["total"] == 62
 
     # complete one high-priority sub-topic via the tracker cycle (NS -> IP -> Completed)
-    rows = await tracker.sub_topics(env.session, 1, 1)
+    rows = await tracker.sub_topics(env.session, env.user.id, env.user.field, 1, 1)
     row = rows[0]
     assert row.status == STATUS_NOT_STARTED
-    await tracker.cycle_status(env.session, row.id)
-    assert (await env.session.get(type(row), row.id)).status == STATUS_IN_PROGRESS
-    await tracker.cycle_status(env.session, row.id)
-    assert (await env.session.get(type(row), row.id)).status == STATUS_COMPLETED
+    await tracker.cycle_status(env.session, env.user.id, row.id)
+    
+    # Check status from UserSyllabusProgress table
+    p_status = await env.session.scalar(
+        select(UserSyllabusProgress.status).where(
+            UserSyllabusProgress.user_id == env.user.id,
+            UserSyllabusProgress.syllabus_tracker_id == row.id
+        )
+    )
+    assert p_status == STATUS_IN_PROGRESS
+    
+    await tracker.cycle_status(env.session, env.user.id, row.id)
+    p_status2 = await env.session.scalar(
+        select(UserSyllabusProgress.status).where(
+            UserSyllabusProgress.user_id == env.user.id,
+            UserSyllabusProgress.syllabus_tracker_id == row.id
+        )
+    )
+    assert p_status2 == STATUS_COMPLETED
 
-    o1 = await progress.overall(env.session)
+    o1 = await progress.overall(env.session, env.user.id, env.user.field)
     assert o1["done"] == 1
     assert o1["hp_done"] == 1
 

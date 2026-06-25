@@ -37,9 +37,18 @@ def today_kb(log) -> InlineKeyboardMarkup:
     )
 
 
-def months_kb(months: list[int]) -> InlineKeyboardMarkup:
+def field_kb() -> InlineKeyboardMarkup:
+    btn = InlineKeyboardButton
+    return InlineKeyboardMarkup(
+        [
+            [btn("💻 CSE", callback_data="field:cse"), btn("📡 ECE", callback_data="field:ece")]
+        ]
+    )
+
+
+def months_kb(months: list[int], field: str) -> InlineKeyboardMarkup:
     rows = [
-        [InlineKeyboardButton(f"Month {m} — {month_title(m)}", callback_data=f"tk:m:{m}")]
+        [InlineKeyboardButton(f"Month {m} — {month_title(field, m)}", callback_data=f"tk:m:{m}")]
         for m in months
     ]
     return InlineKeyboardMarkup(rows)

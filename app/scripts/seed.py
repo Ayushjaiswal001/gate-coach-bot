@@ -22,25 +22,34 @@ def load_syllabus(path: Path = SYLLABUS_PATH) -> dict:
 
 async def seed(session: AsyncSession, data: dict) -> int:
     count = 0
-    order = 0
-    for m in data["months"]:
-        for wk in m["weeks"]:
-            for sub in wk["sub_topics"]:
-                row = await session.scalar(
-                    select(SyllabusTracker).where(
-                        SyllabusTracker.month == m["month"],
-                        SyllabusTracker.week == wk["week"],
-                        SyllabusTracker.sub_topic == sub,
+    for field in ["cse", "ece"]:
+        if field not in data:
+            continue
+        order = 0
+        for m in data[field]["months"]:
+            for wk in m["weeks"]:
+                for sub in wk["sub_topics"]:
+                    row = await session.scalar(
+                        select(SyllabusTracker).where(
+                            SyllabusTracker.field == field.upper(),
+                            SyllabusTracker.month == m["month"],
+                            SyllabusTracker.week == wk["week"],
+                            SyllabusTracker.sub_topic == sub,
+                        )
                     )
-                )
-                if row is None:
-                    row = SyllabusTracker(month=m["month"], week=wk["week"], sub_topic=sub)
-                    session.add(row)
-                row.subject = wk["subject"]
-                row.is_high_priority = bool(wk.get("hp", False))
-                row.sort_order = order
-                order += 1
-                count += 1
+                    if row is None:
+                        row = SyllabusTracker(
+                            field=field.upper(),
+                            month=m["month"],
+                            week=wk["week"],
+                            sub_topic=sub,
+                        )
+                        session.add(row)
+                    row.subject = wk["subject"]
+                    row.is_high_priority = bool(wk.get("hp", False))
+                    row.sort_order = order
+                    order += 1
+                    count += 1
     await session.commit()
     return count
 

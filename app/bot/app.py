@@ -12,12 +12,13 @@ from telegram.ext import (
 )
 
 from app.bot import callbacks, middlewares
-from app.bot.handlers import dashboard, flag, start, text, today, track
+from app.bot.handlers import dashboard, field, flag, start, text, today, track
 from app.bot.scheduler import register_jobs
 from app.config import settings
 
 COMMANDS = [
     ("start", "6-month strategy & setup"),
+    ("field", "Switch between CSE and ECE"),
     ("today", "Today's checklist & hours"),
     ("dashboard", "Progress & current target"),
     ("track", "Browse & update syllabus"),
@@ -52,6 +53,7 @@ def build_application() -> Application:
     )
     app.add_handler(TypeHandler(Update, middlewares.gatekeeper), group=-1)
     app.add_handler(CommandHandler("start", start.start_cmd))
+    app.add_handler(CommandHandler("field", field.field_cmd))
     app.add_handler(CommandHandler("help", start.help_cmd))
     app.add_handler(CommandHandler("today", today.today_cmd))
     app.add_handler(CommandHandler("dashboard", dashboard.dashboard_cmd))

@@ -1,123 +1,246 @@
-# 6-month high-ROI GATE CSE roadmap. Seeded into syllabus_tracker (one row per sub_topic).
+# 6-month high-ROI GATE CSE and ECE roadmaps. Seeded into syllabus_tracker (one row per sub_topic).
 # `hp: true` marks high-priority weeks.
 
-months:
-  - month: 1
-    title: "Programming, DS, & Algorithms"
-    weeks:
-      - week: 1
-        subject: "C Programming"
-        hp: true
-        sub_topics: ["Pointers", "Recursion", "Arrays"]
-      - week: 2
-        subject: "Linear Data Structures"
-        hp: true
-        sub_topics: ["Stacks", "Queues", "Linked Lists"]
-      - week: 3
-        subject: "Non-Linear Data Structures"
-        hp: true
-        sub_topics: ["Trees", "Binary Search Trees", "AVL Trees", "Heaps", "DFS/BFS"]
-      - week: 4
-        subject: "Algorithms"
-        hp: true
-        sub_topics: ["Asymptotic Analysis", "Sorting", "Divide & Conquer", "Greedy"]
+cse:
+  months:
+    - month: 1
+      title: "Programming, DS, & Algorithms"
+      weeks:
+        - week: 1
+          subject: "C Programming"
+          hp: true
+          sub_topics: ["Pointers", "Recursion", "Arrays"]
+        - week: 2
+          subject: "Linear Data Structures"
+          hp: true
+          sub_topics: ["Stacks", "Queues", "Linked Lists"]
+        - week: 3
+          subject: "Non-Linear Data Structures"
+          hp: true
+          sub_topics: ["Trees", "Binary Search Trees", "AVL Trees", "Heaps", "DFS/BFS"]
+        - week: 4
+          subject: "Algorithms"
+          hp: true
+          sub_topics: ["Asymptotic Analysis", "Sorting", "Divide & Conquer", "Greedy"]
 
-  - month: 2
-    title: "Math Engine"
-    weeks:
-      - week: 1
-        subject: "Discrete Math"
-        hp: true
-        sub_topics: ["Propositional Logic", "Set Theory", "Relations"]
-      - week: 2
-        subject: "Graph Theory & Combinatorics"
-        hp: true
-        sub_topics: ["Graph Theory", "Combinatorics"]
-      - week: 3
-        subject: "Linear Algebra"
-        hp: false
-        sub_topics: ["Matrices", "System of Equations", "Eigenvalues"]
-      - week: 4
-        subject: "Calculus & Probability"
-        hp: false
-        sub_topics: ["Calculus", "Bayes Theorem", "Distributions"]
+    - month: 2
+      title: "Math Engine"
+      weeks:
+        - week: 1
+          subject: "Discrete Math"
+          hp: true
+          sub_topics: ["Propositional Logic", "Set Theory", "Relations"]
+        - week: 2
+          subject: "Graph Theory & Combinatorics"
+          hp: true
+          sub_topics: ["Graph Theory", "Combinatorics"]
+        - week: 3
+          subject: "Linear Algebra"
+          hp: false
+          sub_topics: ["Matrices", "System of Equations", "Eigenvalues"]
+        - week: 4
+          subject: "Calculus & Probability"
+          hp: false
+          sub_topics: ["Calculus", "Bayes Theorem", "Distributions"]
 
-  - month: 3
-    title: "Systems & Automata"
-    weeks:
-      - week: 1
-        subject: "OS Processes"
-        hp: true
-        sub_topics: ["Scheduling", "Concurrency", "Semaphores"]
-      - week: 2
-        subject: "OS Memory Management"
-        hp: true
-        sub_topics: ["Paging", "TLB", "Virtual Memory", "Deadlocks"]
-      - week: 3
-        subject: "TOC Automata"
-        hp: true
-        sub_topics: ["Regular Expressions", "DFA/NFA Construction"]
-      - week: 4
-        subject: "TOC Grammars & Decidability"
-        hp: true
-        sub_topics: ["CFG", "PDA", "Turing Machines", "Decidability Table"]
+    - month: 3
+      title: "Systems & Automata"
+      weeks:
+        - week: 1
+          subject: "OS Processes"
+          hp: true
+          sub_topics: ["Scheduling", "Concurrency", "Semaphores"]
+        - week: 2
+          subject: "OS Memory Management"
+          hp: true
+          sub_topics: ["Paging", "TLB", "Virtual Memory", "Deadlocks"]
+        - week: 3
+          subject: "TOC Automata"
+          hp: true
+          sub_topics: ["Regular Expressions", "DFA/NFA Construction"]
+        - week: 4
+          subject: "TOC Grammars & Decidability"
+          hp: true
+          sub_topics: ["CFG", "PDA", "Turing Machines", "Decidability Table"]
 
-  - month: 4
-    title: "Data & Connections (Selective Targeting)"
-    weeks:
-      - week: 1
-        subject: "DBMS Core"
-        hp: false
-        sub_topics: ["ER Models", "Relational Algebra", "SQL Queries"]
-      - week: 2
-        subject: "DBMS Transactions"
-        hp: false
-        sub_topics: ["Normalization", "BCNF", "Concurrency Control"]
-      - week: 3
-        subject: "Computer Networks (Routing)"
-        hp: true
-        sub_topics: ["IPv4 Addressing", "Subnetting", "Routing"]
-      - week: 4
-        subject: "Computer Networks (Transport/MAC)"
-        hp: false
-        sub_topics: ["TCP/UDP", "Congestion Control", "MAC Layer"]
+    - month: 4
+      title: "Data & Connections (Selective Targeting)"
+      weeks:
+        - week: 1
+          subject: "DBMS Core"
+          hp: false
+          sub_topics: ["ER Models", "Relational Algebra", "SQL Queries"]
+        - week: 2
+          subject: "DBMS Transactions"
+          hp: false
+          sub_topics: ["Normalization", "BCNF", "Concurrency Control"]
+        - week: 3
+          subject: "Computer Networks (Routing)"
+          hp: true
+          sub_topics: ["IPv4 Addressing", "Subnetting", "Routing"]
+        - week: 4
+          subject: "Computer Networks (Transport/MAC)"
+          hp: false
+          sub_topics: ["TCP/UDP", "Congestion Control", "MAC Layer"]
 
-  - month: 5
-    title: "Hardware & Consolidation"
-    weeks:
-      - week: 1
-        subject: "COA"
-        hp: true
-        sub_topics: ["Cache Mapping Numericals", "Instruction Pipelining/Hazards"]
-      - week: 2
-        subject: "Digital Logic"
-        hp: false
-        sub_topics: ["Boolean Algebra", "K-Maps", "Combinational Circuits"]
-      - week: 3
-        subject: "Revision Cycle"
-        hp: false
-        sub_topics: ["Re-solving flagged/incorrect PYQs"]
-      - week: 4
-        subject: "Short Notes Extraction"
-        hp: false
-        sub_topics: ["Formula sheets & edge cases"]
+    - month: 5
+      title: "Hardware & Consolidation"
+      weeks:
+        - week: 1
+          subject: "COA"
+          hp: true
+          sub_topics: ["Cache Mapping Numericals", "Instruction Pipelining/Hazards"]
+        - week: 2
+          subject: "Digital Logic"
+          hp: false
+          sub_topics: ["Boolean Algebra", "K-Maps", "Combinational Circuits"]
+        - week: 3
+          subject: "Revision Cycle"
+          hp: false
+          sub_topics: ["Re-solving flagged/incorrect PYQs"]
+        - week: 4
+          subject: "Short Notes Extraction"
+          hp: false
+          sub_topics: ["Formula sheets & edge cases"]
 
-  - month: 6
-    title: "The Mock Crucible"
-    weeks:
-      - week: 1
-        subject: "Full-Length Mocks"
-        hp: false
-        sub_topics: ["3-Hour Mock + Error Logging (Week 1)"]
-      - week: 2
-        subject: "Full-Length Mocks"
-        hp: false
-        sub_topics: ["3-Hour Mock + Error Logging (Week 2)"]
-      - week: 3
-        subject: "Full-Length Mocks"
-        hp: false
-        sub_topics: ["3-Hour Mock + Error Logging (Week 3)"]
-      - week: 4
-        subject: "Full-Length Mocks"
-        hp: false
-        sub_topics: ["3-Hour Mock + Error Logging (Week 4)"]
+    - month: 6
+      title: "The Mock Crucible"
+      weeks:
+        - week: 1
+          subject: "Full-Length Mocks"
+          hp: false
+          sub_topics: ["3-Hour Mock + Error Logging (Week 1)"]
+        - week: 2
+          subject: "Full-Length Mocks"
+          hp: false
+          sub_topics: ["3-Hour Mock + Error Logging (Week 2)"]
+        - week: 3
+          subject: "Full-Length Mocks"
+          hp: false
+          sub_topics: ["3-Hour Mock + Error Logging (Week 3)"]
+        - week: 4
+          subject: "Full-Length Mocks"
+          hp: false
+          sub_topics: ["3-Hour Mock + Error Logging (Week 4)"]
+
+ece:
+  months:
+    - month: 1
+      title: "Networks, Signals & Systems"
+      weeks:
+        - week: 1
+          subject: "Network Theory"
+          hp: true
+          sub_topics: ["KCL & KVL", "Network Theorems", "Transient Analysis"]
+        - week: 2
+          subject: "Two-port Networks & AC"
+          hp: false
+          sub_topics: ["Two-port parameters", "Sinusoidal Steady State", "Resonance"]
+        - week: 3
+          subject: "Signals & LTI Systems"
+          hp: true
+          sub_topics: ["Continuous & Discrete Signals", "LTI System Properties", "Fourier Series"]
+        - week: 4
+          subject: "Transforms"
+          hp: true
+          sub_topics: ["Fourier Transform", "Laplace Transform", "Z-Transform"]
+
+    - month: 2
+      title: "Electronic Devices & Analog Circuits"
+      weeks:
+        - week: 1
+          subject: "Semiconductor Physics"
+          hp: true
+          sub_topics: ["Carrier Transport", "PN Junction Diodes", "Zener & Schottky Diodes"]
+        - week: 2
+          subject: "Transistors"
+          hp: true
+          sub_topics: ["BJT Characteristics", "MOSFET Physics", "Biasing Circuits"]
+        - week: 3
+          subject: "Analog Amplifiers"
+          hp: true
+          sub_topics: ["Small-signal Amplifiers", "OP-AMP Circuits", "Active Filters"]
+        - week: 4
+          subject: "Feedback & Oscillators"
+          hp: false
+          sub_topics: ["Feedback Amplifiers", "Sinusoidal Oscillators", "Power Supplies"]
+
+    - month: 3
+      title: "Digital Circuits & Control Systems"
+      weeks:
+        - week: 1
+          subject: "Digital Logic"
+          hp: true
+          sub_topics: ["Boolean Algebra & K-Maps", "Combinational Circuits", "Sequential Circuits"]
+        - week: 2
+          subject: "ADC/DAC & Memories"
+          hp: false
+          sub_topics: ["ADC/DAC Converters", "Semiconductor Memories", "8085 Microprocessor"]
+        - week: 3
+          subject: "Control Core"
+          hp: true
+          sub_topics: ["Transfer Functions", "Block Diagrams & SFG", "Transient Response"]
+        - week: 4
+          subject: "Control Stability"
+          hp: true
+          sub_topics: ["Routh-Hurwitz & Root Locus", "Bode & Nyquist Plots", "State Space Analysis"]
+
+    - month: 4
+      title: "Communications & Electromagnetics"
+      weeks:
+        - week: 1
+          subject: "Analog Communications"
+          hp: false
+          sub_topics: ["Amplitude Modulation", "Angle Modulation", "Noise in Analog Comm"]
+        - week: 2
+          subject: "Digital Communications"
+          hp: true
+          sub_topics: ["Sampling & PCM", "Digital Modulation (ASK/FSK/PSK)", "Information Theory"]
+        - week: 3
+          subject: "Electromagnetics Core"
+          hp: true
+          sub_topics: ["Maxwell's Equations", "Poynting Vector", "Transmission Lines"]
+        - week: 4
+          subject: "Waveguides & Antennas"
+          hp: false
+          sub_topics: ["Rectangular Waveguides", "Antenna Parameters", "Dipole Antennas"]
+
+    - month: 5
+      title: "Engineering Math & Revision"
+      weeks:
+        - week: 1
+          subject: "Linear Algebra & Calculus"
+          hp: true
+          sub_topics: ["Eigenvalues & Eigenvectors", "Limit, Continuity & Differentiability", "Multiple Integrals"]
+        - week: 2
+          subject: "Vector & Complex"
+          hp: false
+          sub_topics: ["Vector Identities & Theorems", "Analytic Functions", "Taylor & Laurent Series"]
+        - week: 3
+          subject: "Probability"
+          hp: true
+          sub_topics: ["Conditional Probability", "Random Variables", "Probability Distributions"]
+        - week: 4
+          subject: "Short Notes Extraction"
+          hp: false
+          sub_topics: ["Formula sheets & trap checklists"]
+
+    - month: 6
+      title: "The Mock Crucible"
+      weeks:
+        - week: 1
+          subject: "Full-Length Mocks"
+          hp: false
+          sub_topics: ["3-Hour Mock + Error Logging (Week 1)"]
+        - week: 2
+          subject: "Full-Length Mocks"
+          hp: false
+          sub_topics: ["3-Hour Mock + Error Logging (Week 2)"]
+        - week: 3
+          subject: "Full-Length Mocks"
+          hp: false
+          sub_topics: ["3-Hour Mock + Error Logging (Week 3)"]
+        - week: 4
+          subject: "Full-Length Mocks"
+          hp: false
+          sub_topics: ["3-Hour Mock + Error Logging (Week 4)"]
