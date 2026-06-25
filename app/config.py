@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     database_url: str = "sqlite+aiosqlite:///./data/gate.db"
     admin_token: str = ""
 
-    @field_validator("telegram_bot_token", "allowed_tg_user_ids", mode="before")
+    @field_validator("telegram_bot_token", "allowed_tg_user_ids", "database_url", mode="before")
     @classmethod
     def clean_strings(cls, v: str) -> str:
         if isinstance(v, str):
