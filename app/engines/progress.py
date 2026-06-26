@@ -5,7 +5,12 @@ from datetime import date
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.db.models import STATUS_COMPLETED, STATUS_NOT_STARTED, SyllabusTracker, UserProfile, UserSyllabusProgress
+from app.db.models import (
+    STATUS_COMPLETED,
+    SyllabusTracker,
+    UserProfile,
+    UserSyllabusProgress,
+)
 from app.engines import tracker
 from app.engines.meta import TOTAL_WEEKS, month_title
 
@@ -50,7 +55,9 @@ async def overall(session: AsyncSession, user_id: int, field: str) -> dict:
     }
 
 
-async def week_rows(session: AsyncSession, user_id: int, field: str, month: int, week: int) -> list[SyllabusTracker]:
+async def week_rows(
+    session: AsyncSession, user_id: int, field: str, month: int, week: int
+) -> list[SyllabusTracker]:
     return await tracker.sub_topics(session, user_id, field, month, week)
 
 

@@ -40,6 +40,7 @@ async def setup_application(app: Application) -> None:
 
 
 def build_application() -> Application:
+    settings.require_bot_token()
     app = (
         ApplicationBuilder()
         .token(settings.telegram_bot_token)

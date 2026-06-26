@@ -1,7 +1,13 @@
 from datetime import date, timedelta
 
 from sqlalchemy import select
-from app.db.models import STATUS_COMPLETED, STATUS_IN_PROGRESS, STATUS_NOT_STARTED, UserSyllabusProgress
+
+from app.db.models import (
+    STATUS_COMPLETED,
+    STATUS_IN_PROGRESS,
+    STATUS_NOT_STARTED,
+    UserSyllabusProgress,
+)
 from app.engines import bookmarks, logs, progress, tracker
 
 

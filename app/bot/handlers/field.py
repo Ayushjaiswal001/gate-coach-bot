@@ -3,7 +3,7 @@
 from telegram import Update
 from telegram.ext import ContextTypes
 
-from app.bot.formatting import esc, send_html
+from app.bot.formatting import send_html
 from app.bot.keyboards import field_kb
 from app.bot.users import ensure_user
 from app.db.session import SessionLocal

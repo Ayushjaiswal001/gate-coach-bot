@@ -31,7 +31,9 @@ async def subjects_in_month(session: AsyncSession, field: str, month: int) -> li
     return seen
 
 
-async def sub_topics(session: AsyncSession, user_id: int, field: str, month: int, week: int) -> list[SyllabusTracker]:
+async def sub_topics(
+    session: AsyncSession, user_id: int, field: str, month: int, week: int
+) -> list[SyllabusTracker]:
     stmt = (
         select(SyllabusTracker, UserSyllabusProgress.status)
         .outerjoin(
@@ -63,11 +65,13 @@ async def cycle_status(session: AsyncSession, user_id: int, row_id: int) -> Syll
     # Get or create the progress record
     stmt = select(UserSyllabusProgress).where(
         UserSyllabusProgress.user_id == user_id,
-        UserSyllabusProgress.syllabus_tracker_id == row_id
+        UserSyllabusProgress.syllabus_tracker_id == row_id,
     )
     progress = await session.scalar(stmt)
     if progress is None:
-        progress = UserSyllabusProgress(user_id=user_id, syllabus_tracker_id=row_id, status=STATUS_NOT_STARTED)
+        progress = UserSyllabusProgress(
+            user_id=user_id, syllabus_tracker_id=row_id, status=STATUS_NOT_STARTED
+        )
         session.add(progress)
 
     cur = progress.status if progress.status in STATUS_CYCLE else STATUS_NOT_STARTED

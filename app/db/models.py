@@ -79,8 +79,12 @@ class UserSyllabusProgress(Base):
     )
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    user_id: Mapped[int] = mapped_column(ForeignKey("user_profile.id", ondelete="CASCADE"), index=True)
-    syllabus_tracker_id: Mapped[int] = mapped_column(ForeignKey("syllabus_tracker.id", ondelete="CASCADE"), index=True)
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("user_profile.id", ondelete="CASCADE"), index=True
+    )
+    syllabus_tracker_id: Mapped[int] = mapped_column(
+        ForeignKey("syllabus_tracker.id", ondelete="CASCADE"), index=True
+    )
     status: Mapped[str] = mapped_column(String(16), default=STATUS_NOT_STARTED)
 
 
