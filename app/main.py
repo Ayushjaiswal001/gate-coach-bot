@@ -5,7 +5,7 @@ import logging
 import os
 from pathlib import Path
 
-from app.api.health import make_server
+from app.api.health import make_server, set_bot_app
 from app.bot.app import build_application, setup_application
 from app.config import settings
 
@@ -45,6 +45,7 @@ async def amain() -> None:
         if app is None:
             raise RuntimeError("bot failed to start after retries")
         logger.info("bot polling started")
+        set_bot_app(app)  # /healthz reports 503 if polling dies → host restarts the container
         await server_task
     finally:
         logger.info("shutting down")
