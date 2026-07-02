@@ -5,6 +5,7 @@ from __future__ import annotations
 from datetime import UTC, date, datetime
 
 from sqlalchemy import (
+    BigInteger,
     Boolean,
     Date,
     DateTime,
@@ -35,7 +36,7 @@ class UserProfile(Base):
     __tablename__ = "user_profile"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    tg_user_id: Mapped[int] = mapped_column(unique=True, index=True)
+    tg_user_id: Mapped[int] = mapped_column(BigInteger, unique=True, index=True)
     first_name: Mapped[str | None] = mapped_column(String(128))
     field: Mapped[str] = mapped_column(String(16), default="CSE")  # "CSE" or "ECE"
     daily_hours_goal: Mapped[float] = mapped_column(Float, default=4.5)

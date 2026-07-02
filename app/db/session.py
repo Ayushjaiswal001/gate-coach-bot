@@ -4,7 +4,14 @@ from sqlalchemy.ext.asyncio import AsyncEngine, async_sessionmaker, create_async
 
 from app.config import settings
 
-engine: AsyncEngine = create_async_engine(settings.database_url)
+_pg = settings.database_url.startswith("postgresql")
+engine: AsyncEngine = create_async_engine(
+    settings.database_url,
+    pool_pre_ping=True,
+    pool_recycle=300,
+    # Neon -pooler (PgBouncer) breaks asyncpg's prepared-statement cache — disable it.
+    connect_args={"statement_cache_size": 0} if _pg else {},
+)
 SessionLocal = async_sessionmaker(engine, expire_on_commit=False)
 
 
